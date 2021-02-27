@@ -1,14 +1,21 @@
 <template>
     <div class="header-2">
         <nav class="bg-white py-2 md:py-4">
-            <div class="container px-4 mx-auto md:flex md:items-center md:w-9/12">
+            <div
+                class="container px-4 mx-auto md:flex md:items-center md:w-9/12"
+            >
                 <div class="flex justify-between items-center">
-                    <a href="#" class="font-bold text-xl text-indigo-600"
-                        >COVID-19</a
+                    <router-link
+                        to="/"
+                        class="font-bold text-xl text-indigo-600"
+                        >COVID-19</router-link
                     >
                     <button
                         class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden"
-                        v-on:click="navbarClass = navbarClass == `hidden` ? `flex` : `hidden`"
+                        v-on:click="
+                            navbarClass =
+                                navbarClass == `hidden` ? `flex` : `hidden`
+                        "
                     >
                         <font-awesome-icon :icon="['fas', 'bars']" />
                     </button>
@@ -18,25 +25,29 @@
                     :class="navbarClass"
                     class="md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0"
                 >
-                    <router-link to="/about" class="p-2 lg:px-4 md:mx-2 text-white rounded bg-indigo-600">Home</router-link>
-                    <a
-                        href="#"
-                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300"
-                        >About</a
+                    <router-link
+                        to="/"
+                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 active:text-white active:bg-indigo-200"
+                        >Home</router-link
+                    >
+                    <router-link
+                        to="/about"
+                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 active:text-white active:bg-indigo-200"
+                        >About</router-link
                     >
                     <a
                         href="#"
-                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300"
+                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 active:text-white active:bg-indigo-200"
                         >Features</a
                     >
                     <a
                         href="#"
-                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300"
+                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 active:text-white active:bg-indigo-200"
                         >Pricing</a
                     >
                     <a
                         href="#"
-                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300"
+                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 active:text-white active:bg-indigo-200"
                         >Contact</a
                     >
                 </div>
@@ -50,7 +61,7 @@
                         Get the header you needed for your awesome website.
                     </h1>
                     <button
-                        class="bg-indigo-600 text-white py-2 px-6 rounded-full text-xl mt-6"
+                        class="bg-indigo-600 text-white py-2 px-6 rounded-full text-xl mt-6 focus:outline-none"
                     >
                         Get Started
                     </button>
