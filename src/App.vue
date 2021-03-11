@@ -6,6 +6,7 @@
 
 <style>
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 </style>

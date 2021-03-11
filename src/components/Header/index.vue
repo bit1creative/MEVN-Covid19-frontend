@@ -1,6 +1,6 @@
 <template>
-    <div id="header" class="header-2">
-        <nav v-sticky class="bg-white dark:bg-dark-mode-bg py-2 md:py-4">
+    <div id="header" class="header-2 select-none">
+        <nav class="bg-white dark:bg-dark-mode-bg py-2 md:py-4">
             <div
                 class="container px-4 mx-auto md:flex md:items-center md:w-9/12"
             >
@@ -11,7 +11,7 @@
                         >COVID-19</router-link
                     >
                     <button
-                        class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden"
+                        class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden outline-none"
                         v-on:click="
                             navbarClass =
                                 navbarClass == `hidden` ? `flex` : `hidden`
@@ -25,62 +25,46 @@
                     :class="navbarClass"
                     class="md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0"
                 >
+                    <span class="md:hidden border border-main-color dark:border-dark-mode-main-color dark:border-opacity-90"></span>
                     <router-link
                         to="/"
                         class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-dark-mode-btn dark:hover:text-gray-300 transition-colors duration-300 active:text-white active:bg-indigo-200"
                         >Home</router-link
                     >
                     <router-link
-                        to="/about"
+                        to="#"
                         class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-dark-mode-btn dark:hover:text-gray-300 transition-colors duration-300 active:text-white active:bg-indigo-200"
                         >About</router-link
                     >
                     <a
                         href="#"
+                        v-scroll-to="{
+                            element: '#footer',
+                            duration: 1250,
+                            easing: 'ease-in-out'
+                        }"
                         class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 dark:text-gray-500 dark:hover:bg-dark-mode-btn dark:hover:text-gray-300 transition-colors duration-300 active:text-white active:bg-indigo-200"
-                        >Features</a
+                        >Contacts</a
                     >
                 </div>
             </div>
         </nav>
-        <div class="fixed bottom-5 right-5 text-3xl text-gray-500">
-            <a href="#header">
-                <font-awesome-icon
-                    :icon="['fas', 'chevron-up']"
-                    class="hover:animate-bounce"
-                />
-            </a>
-        </div>
-        <div class="bg-gray-50 flex justify-center">
-            <input v-focus/>
-        </div>
+        <scroll-top-btn class="z-40"></scroll-top-btn>
     </div>
 </template>
 
 <script>
+import ScrollTopBtn from './components/ScrollTopBtn.vue';
+
 export default {
     name: 'Header',
+    components: {
+        ScrollTopBtn,
+    },
     data() {
         return {
             navbarClass: 'hidden',
         };
-    },
-    methods: {
-        name() {},
-    },
-    directives: {
-        scrollup: {
-            // directive definition
-            mounted(el, binding) {
-                el.style.right = binding.value;
-            },
-        },
-        focus: {
-            // directive definition
-            mounted(el) {
-                el.focus();
-            },
-        },
     },
 };
 </script>

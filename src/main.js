@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import VueRouter from 'vue-router';
+import VueScrollTo from 'vue-scrollto';
 import './assets/tailwind.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -8,33 +9,20 @@ import {
     faBars,
     faArrowDown,
     faChevronCircleUp,
-    faChevronUp,
+    faChevronUp
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faFontAwesome } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faFacebookSquare, faTelegram, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
+import { faChartBar } from '@fortawesome/free-regular-svg-icons'
 import router from './router';
 
-library.add(faBars, faArrowDown, faFontAwesome, faChevronCircleUp, faChevronUp);
+library.add(faBars, faArrowDown, faChevronCircleUp, faChevronUp, faLinkedin, faFacebookSquare, faTelegram, faTwitterSquare, faChartBar);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.use(VueRouter);
+Vue.use(VueScrollTo);
 Vue.config.productionTip = false;
-
-Vue.directive('sticky', {
-    bind(el) {
-        el.style.position = 'sticky';
-        el.style.top = '0px';
-    },
-});
-
-Vue.directive('focus', {
-    // When the bound element is mounted into the DOM...
-    mounted(el) {
-        // Focus the element
-        el.focus();
-    },
-});
 
 new Vue({
     router,

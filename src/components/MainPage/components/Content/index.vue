@@ -1,23 +1,30 @@
 <template>
     <div class="bg-pink-50 dark:bg-dark-mode-bg2 py-6 md:py-12">
         <div class="container md:px-4 lg:px-16 mx-auto">
-            <div class="text-center mx-auto">
+            <div class="text-center mx-auto select-none">
                 <h1
                     class="text-3xl md:text-4xl font-medium mb-2 py-4 text-gray-200 bg-main-color dark:bg-dark-mode-main-color"
                 >
-                    Title.
+                    COVID-19
                 </h1>
-                <button
-                    class="animate-pulse rounded-sm text-gray-500 py-4 dark:text-gray-200 px-6 text-xl focus:outline-none"
+                <a
+                    href="#"
+                    v-scroll-to="{
+                        element: '#overview',
+                        duration: 500,
+                        easing: 'ease-in-out',
+                    }"
                 >
-                    <a href="#overview"
-                        >Read About<br />
+                    <button
+                        class="animate-pulse rounded-sm text-gray-500 py-4 dark:text-gray-200 px-6 text-xl focus:outline-none"
+                    >
+                        Read About<br />
                         <font-awesome-icon
                             :icon="['fas', 'arrow-down']"
                             class="animate-bounce mt-2"
                         />
-                    </a>
-                </button>
+                    </button>
+                </a>
                 <!-- <div class="mt-4">
                     <img
                         src="https://www.who.int/images/default-source/health-topics/coronavirus/gettyimages-1203376093.tmb-1366v.png?Culture=en&sfvrsn=6e0c1bc7_6%201366w"
@@ -27,7 +34,7 @@
                 </div> -->
             </div>
             <div
-                class="relative flex justify-center w-full h-36 sm:h-64 md:h-64 lg:h-112"
+                class="relative flex justify-center w-full h-44 sm:h-64 lg:h-112"
             >
                 <img
                     src="https://www.who.int/images/default-source/health-topics/coronavirus/gettyimages-1203376093.tmb-1366v.png?Culture=en&sfvrsn=6e0c1bc7_6%201366w"
@@ -36,7 +43,7 @@
                 />
                 <div
                     id="overview"
-                    class="absolute invisible md:visible bottom-0 left-10 bg-pink-50 dark:bg-dark-mode-bg2 w-4/12 h-1/4 text-left text-bottom border dark:border-dark-mode-main-color"
+                    class="absolute invisible md:visible bottom-0 left-10 bg-pink-50 dark:bg-dark-mode-bg2 w-4/12 h-1/4 text-left text-bottom border dark:border-dark-mode-main-color select-none"
                 >
                     <span class="absolute flex h-3 w-3 -right-1 -top-1">
                         <span
@@ -186,32 +193,38 @@
                     </div>
                 </div>
             </div>
-            <chart-map :countryData="countryData"></chart-map>
+            <div
+                class="bg-main-color dark:bg-dark-mode-bg3 text-gray-200 text-center mx-auto py-4 my-4 text-2xl"
+            >
+                <router-link
+                    to="/stats"
+                    class="flex justify-center mx-auto w-5/12 sm:w-4/12 md:w-3/12 select-none"
+                >
+                    <span class="pr-5 dark:text-gray-200">View Stats</span>
+                    <div class="pt-1">
+                        <font-awesome-icon
+                            class="absolute dark:text-gray-200"
+                            :icon="['far', 'chart-bar']"
+                        ></font-awesome-icon>
+                        <font-awesome-icon
+                            class="absolute animate-ping opacity-60 dark:text-dark-mode-main-color dark:opacity-40"
+                            :icon="['far', 'chart-bar']"
+                        ></font-awesome-icon>
+                    </div>
+                </router-link>
+            </div>
+            <!-- <chart-map></chart-map> -->
         </div>
     </div>
 </template>
 
 <script>
-import ChartMap from './components/ChartMap.vue';
-import GlobalCovidDataService from '../../../../services/GlobalCovidDataService';
+// import ChartMap from './components/ChartMap.vue';
 
 export default {
     name: 'Content',
     components: {
-        ChartMap,
-    },
-    data() {
-        return {
-            countryData: {},
-            error: '',
-        };
-    },
-    async beforeCreate() {
-        try {
-            this.countryData = await GlobalCovidDataService.getDataForCountries();
-        } catch (error) {
-            this.error = error.message;
-        }
+        // ChartMap,
     },
 };
 </script>
