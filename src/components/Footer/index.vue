@@ -4,7 +4,8 @@
             class="container flex items-center justify-center md:block mx-auto md:px-4 lg:px-16"
         >
             <div class="text-center pr-4 pt-1 text-gray-500 dark:text-gray-400">
-                <span>© 2021 Ivan Hrytsenko</span>
+                <span>© 2021 Ivan Hrytsenko</span><br>
+                <span class="text-sm">Designer: Sasha Orsag</span>
             </div>
             <!-- <div class="hidden md:block w-2/12"></div> -->
             <div class="pt-1 flex justify-center">

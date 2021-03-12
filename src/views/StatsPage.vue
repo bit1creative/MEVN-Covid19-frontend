@@ -1,10 +1,26 @@
 <template>
-    <div>
-        <h1>This is an ChartMap page</h1>
-        <router-link
-            to="/"
-            class="p-2 lg:px-4 md:mx-2 text-white rounded bg-indigo-600"
-            >Home</router-link
-        >
+    <div class="stats-page">
+        <Header />
+        <StatsPageContent />
+        <Footer />
     </div>
 </template>
+
+<script>
+    import Header from "@/components/Header";
+    import Footer from "@/components/Footer"
+    import StatsPageContent from "@/components/StatsPageContent"
+
+    export default {
+        name: "StatsPage",
+        components: {
+            Header,
+            Footer,
+            StatsPageContent
+        }
+    }
+</script>
+
+<style lang="scss" scoped>
+
+</style>

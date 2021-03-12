@@ -32,9 +32,9 @@
                         >Home</router-link
                     >
                     <router-link
-                        to="#"
+                        to="/stats"
                         class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-dark-mode-btn dark:hover:text-gray-300 transition-colors duration-300 active:text-white active:bg-indigo-200"
-                        >About</router-link
+                        >Statistics</router-link
                     >
                     <a
                         href="#"

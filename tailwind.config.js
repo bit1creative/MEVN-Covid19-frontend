@@ -40,6 +40,8 @@ module.exports = {
             animation: ['responsive', 'hover'],
             margin: ['responsive', 'hover'],
             opacity: ['active', 'dark'],
+            fontSize: ['responsive', 'hover'],
+            lineHeight: ['responsive', 'hover'],
         },
     },
     plugins: [],

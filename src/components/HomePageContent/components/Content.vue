@@ -194,7 +194,7 @@
                 </div>
             </div>
             <div
-                class="bg-main-color dark:bg-dark-mode-bg3 text-gray-200 text-center mx-auto py-4 my-4 text-2xl"
+                class="bg-main-color dark:bg-dark-mode-bg3 text-gray-200 text-center h-18 mx-auto py-4 my-4 text-2xl"
             >
                 <router-link
                     to="/stats"
@@ -207,24 +207,21 @@
                             :icon="['far', 'chart-bar']"
                         ></font-awesome-icon>
                         <font-awesome-icon
-                            class="absolute animate-ping opacity-60 dark:text-dark-mode-main-color dark:opacity-40"
+                            class="absolute animate-ping opacity-70 dark:text-dark-mode-main-color dark:opacity-40"
                             :icon="['far', 'chart-bar']"
                         ></font-awesome-icon>
                     </div>
                 </router-link>
             </div>
-            <!-- <chart-map></chart-map> -->
         </div>
     </div>
 </template>
 
 <script>
-// import ChartMap from './components/ChartMap.vue';
-
 export default {
     name: 'Content',
     components: {
-        // ChartMap,
+
     },
 };
 </script>

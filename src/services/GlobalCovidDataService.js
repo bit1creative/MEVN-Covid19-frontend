@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:3000/api/covid-19';
+const url = 'http://192.168.1.6:3000/api/covid-19';
 
 class GlobalCovidDataService {
     // get total covid data
