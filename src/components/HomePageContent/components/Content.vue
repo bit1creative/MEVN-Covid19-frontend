@@ -43,18 +43,18 @@
                 />
                 <div
                     id="overview"
-                    class="absolute invisible md:visible bottom-0 left-10 bg-pink-50 dark:bg-dark-mode-bg2 w-4/12 h-1/4 text-left text-bottom border dark:border-dark-mode-main-color select-none"
+                    class="absolute invisible md:visible bottom-0 left-10 bg-pink-50 dark:bg-dark-mode-bg2 w-4/12 h-1/4 text-left text-bottom border dark:border-dark-mode-secondary-color select-none"
                 >
                     <span class="absolute flex h-3 w-3 -right-1 -top-1">
                         <span
-                            class="absolute inline-flex rounded-full h-3 w-3 dark:bg-dark-mode-main-color"
+                            class="absolute inline-flex rounded-full h-3 w-3 dark:bg-dark-mode-secondary-color"
                         ></span>
                         <span
-                            class="animate-ping inline-flex h-full w-full rounded-full dark:bg-dark-mode-main-color opacity-75"
+                            class="animate-ping inline-flex h-full w-full rounded-full dark:bg-dark-mode-secondary-color opacity-75"
                         ></span>
                     </span>
                     <span
-                        class="absolute text-3xl lg:text-5xl font-sans text-gray-600 dark:text-dark-mode-title font-normal ml-4 lg:ml-8 mb-2 lg:mb-4 bottom-0"
+                        class="absolute text-3xl lg:text-5xl font-sans text-gray-600 dark:text-dark-mode-main-color font-normal ml-4 lg:ml-8 mb-2 lg:mb-4 bottom-0"
                     >
                         Overview
                     </span>
@@ -64,7 +64,7 @@
             <div class="md:flex md:flex-wrap md:mx-4 mt-6 md:mt-12">
                 <div class="md:w-1/3 md:px-4 xl:px-6 mt-8 md:mt-0 text-center">
                     <span
-                        class="w-20 border-t-2 border-solid border-indigo-200 inline-block mb-3 dark:border-dark-mode-main-color"
+                        class="w-20 border-t-2 border-solid border-indigo-200 inline-block mb-3 dark:border-dark-mode-secondary-color"
                     ></span>
                     <h5
                         class="text-xl dark:text-gray-200 font-medium uppercase mb-4"
@@ -84,7 +84,7 @@
 
                 <div class="md:w-1/3 md:px-4 xl:px-6 mt-8 md:mt-0 text-center">
                     <span
-                        class="w-20 border-t-2 border-solid border-indigo-200 inline-block mb-3 dark:border-dark-mode-main-color"
+                        class="w-20 border-t-2 border-solid border-indigo-200 inline-block mb-3 dark:border-dark-mode-secondary-color"
                     ></span>
                     <h5
                         class="text-xl dark:text-gray-200 font-medium uppercase mb-4"
@@ -102,7 +102,7 @@
 
                 <div class="md:w-1/3 md:px-4 xl:px-6 mt-8 md:mt-0 text-center">
                     <span
-                        class="w-20 border-t-2 border-solid border-indigo-200 inline-block mb-3 dark:border-dark-mode-main-color"
+                        class="w-20 border-t-2 border-solid border-indigo-200 inline-block mb-3 dark:border-dark-mode-secondary-color"
                     ></span>
                     <h5
                         class="text-xl dark:text-gray-200 font-medium uppercase mb-4"
@@ -120,7 +120,7 @@
 
                 <div class="md:w-1/3 md:px-4 xl:px-6 mt-8 md:mt-16 text-center">
                     <span
-                        class="w-20 border-t-2 border-solid border-indigo-200 inline-block mb-3 dark:border-dark-mode-main-color"
+                        class="w-20 border-t-2 border-solid border-indigo-200 inline-block mb-3 dark:border-dark-mode-secondary-color"
                     ></span>
                     <h5
                         class="text-xl dark:text-gray-200 font-medium uppercase mb-4"
@@ -130,7 +130,7 @@
                     <div class="flex justify-between">
                         <div></div>
                         <ul
-                            class="list-disc list-inside text-left text-gray-600 dark:text-gray-400 dark:border-dark-mode-main-color"
+                            class="list-disc list-inside text-left text-gray-600 dark:text-gray-400 dark:border-dark-mode-secondary-color"
                         >
                             <li>fever.</li>
                             <li>dry cough.</li>
@@ -142,7 +142,7 @@
 
                 <div class="md:w-1/3 md:px-4 xl:px-6 mt-8 md:mt-16 text-center">
                     <span
-                        class="w-20 border-t-2 border-solid border-indigo-200 inline-block mb-3 dark:border-dark-mode-main-color"
+                        class="w-20 border-t-2 border-solid border-indigo-200 inline-block mb-3 dark:border-dark-mode-secondary-color"
                     ></span>
                     <h5
                         class="text-xl dark:text-gray-200 font-medium uppercase mb-4"
@@ -171,7 +171,7 @@
 
                 <div class="md:w-1/3 md:px-4 xl:px-6 mt-8 md:mt-16 text-center">
                     <span
-                        class="w-20 border-t-2 border-solid border-indigo-200 inline-block mb-3 dark:border-dark-mode-main-color"
+                        class="w-20 border-t-2 border-solid border-indigo-200 inline-block mb-3 dark:dark-mode-secondary-color"
                     ></span>
                     <h5
                         class="text-xl dark:text-gray-200 font-medium uppercase mb-4"
