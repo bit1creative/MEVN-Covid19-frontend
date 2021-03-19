@@ -9,19 +9,39 @@ import {
     faBars,
     faArrowDown,
     faChevronCircleUp,
-    faChevronUp
+    faChevronUp,
+    faArrowLeft,
+    faArrowRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faLinkedin, faFacebookSquare, faTelegram, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
-import { faChartBar } from '@fortawesome/free-regular-svg-icons'
+import {
+    faLinkedin,
+    faFacebookSquare,
+    faTelegram,
+    faTwitterSquare,
+} from '@fortawesome/free-brands-svg-icons';
+import { faChartBar } from '@fortawesome/free-regular-svg-icons';
 import router from './router';
 
-library.add(faBars, faArrowDown, faChevronCircleUp, faChevronUp, faLinkedin, faFacebookSquare, faTelegram, faTwitterSquare, faChartBar);
+library.add(
+    faBars,
+    faArrowDown,
+    faChevronCircleUp,
+    faChevronUp,
+    faLinkedin,
+    faFacebookSquare,
+    faTelegram,
+    faTwitterSquare,
+    faChartBar,
+    faArrowRight,
+    faArrowLeft
+);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.use(VueRouter);
 Vue.use(VueScrollTo);
+
 Vue.config.productionTip = false;
 
 new Vue({

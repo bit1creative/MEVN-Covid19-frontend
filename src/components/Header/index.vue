@@ -25,7 +25,9 @@
                     :class="navbarClass"
                     class="md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0"
                 >
-                    <span class="md:hidden border border-main-color dark:border-dark-mode-main-color dark:border-opacity-90"></span>
+                    <span
+                        class="md:hidden border border-main-color dark:border-dark-mode-main-color dark:border-opacity-90"
+                    ></span>
                     <router-link
                         to="/"
                         class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-dark-mode-btn dark:hover:text-gray-300 transition-colors duration-300 active:text-white active:bg-indigo-200"
@@ -41,7 +43,7 @@
                         v-scroll-to="{
                             element: '#footer',
                             duration: 1250,
-                            easing: 'ease-in-out'
+                            easing: 'ease-in-out',
                         }"
                         class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 dark:text-gray-500 dark:hover:bg-dark-mode-btn dark:hover:text-gray-300 transition-colors duration-300 active:text-white active:bg-indigo-200"
                         >Contacts</a
@@ -69,5 +71,4 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
-</style>
+<style lang="css" scoped></style>

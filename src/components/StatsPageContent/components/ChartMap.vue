@@ -1,9 +1,7 @@
 <template>
     <div class="pb-4">
-        <show-date></show-date>
-        <data-menu-select v-if="Object.keys(countryData).length !== 0" @clicked="onClickTypeOfCasesData"></data-menu-select>
         <div
-            class="w-full py-32 sm:py-40 md:py-64 lg:py-80 bg-main-color opacity-50 dark:bg-dark-mode-bg2 dark:opacity-100"
+            class="w-full py-32 sm:py-44 md:py-64 lg:py-80 bg-main-color opacity-50 dark:bg-dark-mode-bg2 dark:opacity-100"
             v-bind:class="[
                 Object.keys(countryData).length !== 0
                     ? 'hidden'
@@ -49,7 +47,6 @@
         </div>
         <div
             id="chartMap"
-            ref="chartMap"
             class="w-full max-w-full bg-pink-50 dark:bg-dark-mode-bg2 py-4 md:pt-16"
             v-bind:class="[
                 Object.keys(countryData).length != 0 ? 'block' : 'hidden',
@@ -76,15 +73,11 @@
 <script>
 import MapChart from 'vue-chart-map';
 import GlobalCovidDataService from '@/services/GlobalCovidDataService';
-import DataMenuSelect from './StatsShowCaseSelector.vue';
-import ShowDate from './ShowDate.vue';
 
 export default {
     name: 'ChartMap',
     components: {
         MapChart,
-        DataMenuSelect,
-        ShowDate,
     },
     data() {
         return {
@@ -96,11 +89,17 @@ export default {
             error: null,
         };
     },
+    props: {
+        chartToShow: {
+            type: String,
+            default: 'TotalConfirmed',
+        },
+    },
     methods: {
-         getData: async function(casesType = 'TotalConfirmed') {
+        getData: async function(chartToShow) {
             try {
                 this.countryData = await GlobalCovidDataService.getDataForCountries(
-                    casesType
+                    chartToShow
                 );
             } catch (e) {
                 this.error = e.message + '\nTry again later or contact us.';
@@ -108,13 +107,9 @@ export default {
                 // setTimeout(this.getData, 10000);
             }
         },
-        onClickTypeOfCasesData: function(casesType) {
-            this.countryData = {};
-            this.getData(casesType);
-        },
     },
-    created: function () {
-        this.getData();
+    created: function() {
+        this.getData(this.chartToShow);
     },
     mounted: function() {
         if (
@@ -131,8 +126,13 @@ export default {
         this.darkMode = 'true';
         return;
     },
+    watch: {
+        chartToShow: function(newChart) {
+            this.countryData = {};
+            this.getData(newChart);
+        },
+    },
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

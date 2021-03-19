@@ -10,6 +10,9 @@ export default {
     components: {
         Content
     },
+    beforeCreate: function() {
+        this.$cookie.set('casesTypeId', 4, 1);
+    }
 };
 </script>
 
