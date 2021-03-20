@@ -1,7 +1,7 @@
 <template>
     <div id="chart-map">
-        <nav-bar @clicked="onClickTypeOfCasesData"></nav-bar>
         <date></date>
+        <nav-bar @clicked="onClickTypeOfCasesData"></nav-bar>
         <chart-map :chartToShow="chartToShow" />
     </div>
 </template>

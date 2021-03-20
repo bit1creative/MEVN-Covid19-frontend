@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div v-if="date" class="m-auto text-center pb-2 md:pb-8 md:pt-4">
+        <div v-if="date" class="m-auto text-center pt-2 md:pt-4">
             <span
-                class="font-semibold md:text-3xl text-gray-600 dark:text-gray-200"
+                class="font-semibold text-xl md:text-3xl text-gray-600 dark:text-gray-200"
                 >{{ date.substring(0, 10) }}</span
             >
         </div>

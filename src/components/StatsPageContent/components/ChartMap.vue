@@ -64,7 +64,7 @@
                 :showEmptyValue="false"
                 legendHeaderBackgroundColor="#FDF2F8"
                 :positionLeftTooltip="0"
-                class="w-full px-2 mx-auto sm:w-11/12 md:w-10/12 lg:w-8/12"
+                class="w-full px-2 mx-auto sm:w-11/12 md:w-10/12 lg:w-9/12"
             />
         </div>
     </div>

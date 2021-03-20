@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="block md:hidden mx-auto pt-4 text-center">
+        <div class="block md:hidden mx-auto py-4 text-center">
             <div
                 class="w-full flex justify-center items-center"
                 :id="casesTypeId"
@@ -10,7 +10,7 @@
                     v-on:click="changeCasesType('prev')"
                     class="text-sm"
                 ></font-awesome-icon>
-                <div class="pb-1 w-4/12 sm:w-3/12">
+                <div class="font-semibold w-4/12 sm:w-3/12">
                     <span class="mx-2">{{ casesTypes[casesTypeId] }}</span>
                 </div>
                 <font-awesome-icon

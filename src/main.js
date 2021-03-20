@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import VueRouter from 'vue-router';
 import VueScrollTo from 'vue-scrollto';
+import Vuex from 'vuex'
 import './assets/tailwind.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -41,6 +42,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.use(VueRouter);
 Vue.use(VueScrollTo);
+Vue.use(Vuex);
 
 Vue.config.productionTip = false;
 
