@@ -1,7 +1,7 @@
 <template>
     <div>
         <a
-            href="#"
+            href=""
             v-scroll-to="{
                 element: '#header',
                 duration: 750,
@@ -38,7 +38,7 @@ export default {
         };
     },
     methods: {
-        handleScroll: function () {
+        handleScroll: function() {
             window.onscroll = () => {
                 if (window.scrollY <= 200) {
                     if (this.scrollUpBtnClass != 'hidden') {
@@ -72,14 +72,13 @@ export default {
             };
         },
     },
-    created: function () {
+    created: function() {
         window.addEventListener('scroll', this.handleScroll);
     },
-    destroyed: function () {
+    destroyed: function() {
         window.removeEventListener('scroll', this.handleScroll);
     },
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

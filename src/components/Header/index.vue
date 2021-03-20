@@ -38,37 +38,43 @@
                         class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-dark-mode-btn dark:hover:text-gray-300 transition-colors duration-300 active:text-white active:bg-indigo-200"
                         >Statistics</router-link
                     >
-                    <a
-                        href="#"
-                        v-scroll-to="{
-                            element: '#footer',
-                            duration: 1250,
-                            easing: 'ease-in-out',
-                        }"
+                    <div
+                        v-on:click="showContacts"
                         class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 dark:text-gray-500 dark:hover:bg-dark-mode-btn dark:hover:text-gray-300 transition-colors duration-300 active:text-white active:bg-indigo-200"
-                        >Contacts</a
                     >
+                        Contacts
+                    </div>
                 </div>
             </div>
         </nav>
+        <contacts />
         <scroll-top-btn class="z-40"></scroll-top-btn>
     </div>
 </template>
 
 <script>
 import ScrollTopBtn from './components/ScrollTopBtn.vue';
+import Contacts from './components/Contacts.vue';
 
 export default {
     name: 'Header',
     components: {
         ScrollTopBtn,
+        Contacts,
     },
     data() {
         return {
             navbarClass: 'hidden',
         };
     },
+    methods: {
+        showContacts: function() {
+            this.$store.dispatch('showContacts');
+        },
+    },
 };
 </script>
 
 <style lang="css" scoped></style>
+
+v-scroll-to="{ element: '#footer', duration: 1250, easing: 'ease-in-out', }"

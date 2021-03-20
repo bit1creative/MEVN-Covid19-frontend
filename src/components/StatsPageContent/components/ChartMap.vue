@@ -42,7 +42,28 @@
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                     ></path>
                 </svg>
-                <pre>{{ !error ? 'Collecting data ...' : error }}</pre>
+                <div :class="{ hidden: error }">
+                    Collecting data ...
+                </div>
+                <div :class="{ hidden: !error }" class="select-text">
+                    Try again later or
+                    <a
+                        href=""
+                        v-scroll-to="{
+                            element: '#contacts',
+                            duration: 2500,
+                            easing: 'ease-out',
+                        }"
+                        class="underline"
+                    >
+                        contact us</a
+                    >
+                    the following error message:
+                    <br />
+                    <div v-for="(line, index) in error" :key="index">
+                        <span>{{ line }}</span>
+                    </div>
+                </div>
             </button>
         </div>
         <div
@@ -71,8 +92,9 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 import MapChart from 'vue-chart-map';
-import GlobalCovidDataService from '@/services/GlobalCovidDataService';
 
 export default {
     name: 'ChartMap',
@@ -85,8 +107,6 @@ export default {
             lowColor: '#ff99b4',
             defaultCountryFillColor: '#dadada',
             darkMode: 'false',
-            countryData: {},
-            error: null,
         };
     },
     props: {
@@ -95,21 +115,17 @@ export default {
             default: 'TotalConfirmed',
         },
     },
-    methods: {
-        getData: async function(chartToShow) {
-            try {
-                this.countryData = await GlobalCovidDataService.getDataForCountries(
-                    chartToShow
-                );
-            } catch (e) {
-                this.error = e.message + '\nTry again later or contact us.';
-                console.log(e);
-                // setTimeout(this.getData, 10000);
-            }
+    watch: {
+        chartToShow: function(newChart) {
+            this.$store.dispatch('getCountryData', newChart);
         },
     },
+    computed: mapState({
+        countryData: 'countryData',
+        error: 'error',
+    }),
     created: function() {
-        this.getData(this.chartToShow);
+        this.$store.dispatch('getCountryData', this.chartToShow);
     },
     mounted: function() {
         if (
@@ -125,12 +141,6 @@ export default {
         this.defaultCountryFillColor = '#b5adc9';
         this.darkMode = 'true';
         return;
-    },
-    watch: {
-        chartToShow: function(newChart) {
-            this.countryData = {};
-            this.getData(newChart);
-        },
     },
 };
 </script>

@@ -12,7 +12,7 @@ module.exports = {
                 'dark-mode-bg3': '#4d546e',
                 'dark-mode-main-color': '#90b8f8',
                 'dark-mode-secondary-color': '#c4bbf0',
-                'dark-mode-title':'#639cd9',
+                'dark-mode-title': '#639cd9',
                 linkedin: '#2867B2',
                 facebook: '#4267B2',
                 telegram: '#0088cc',
@@ -32,6 +32,28 @@ module.exports = {
                     ...theme('colors'),
                     'dark-mode-main-color': '#f2a365',
                 }),
+            },
+            keyframes: {
+                slidein: {
+                    '10%': { right: '-50%' },
+                    '100%': { right: '-8.333333%' },
+                },
+                slideout: {
+                    '0%': { right: '-8.333333%' },
+                    '30%': { right: '0' },
+                    '100%': { right: '-50%;' },
+                },
+                appear: {
+                    '0%, 28%': { opacity: '0' },
+                    '30%': { opacity: '1', width: '100%' },
+                    '90%': { width: '100%' },
+                    '100%': { width: '58.333333%' },
+                },
+            },
+            animation: {
+                slidein: 'slidein 0.3s forwards',
+                appear: 'appear 0.4s forwards',
+                slideout: 'slideout 1s forwards',
             },
         },
     },

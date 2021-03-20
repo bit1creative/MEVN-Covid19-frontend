@@ -11,6 +11,7 @@ html {
 }
 ::-webkit-scrollbar {
     width: 4px;
+    height: 4px;
     cursor: pointer;
     background-color: rgba(229, 231, 235, var(--bg-opacity));
 }

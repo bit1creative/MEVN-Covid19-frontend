@@ -4,44 +4,34 @@ const url = 'http://192.168.1.6:3000/api/covid-19';
 
 class GlobalCovidDataService {
     //get date
-    static async getDate(){
-        const res = await axios.get(`${url}/date`)
+    static async getDate() {
+        const res = await axios.get(`${url}/date`);
         const data = res?.data[0]?.date;
-        return data
+        return data;
     }
 
     // get total covid data
     static async getTotalCovidData() {
-        try {
-            const res = await axios.get(`${url}/total`);
-            const data = res?.data;
-            return data;
-        } catch (error) {
-            return error;
-        }
+        const res = await axios.get(`${url}/total`);
+        const data = res?.data;
+        return data;
     }
 
     // get data by filter (different cases) for countries
     static async getDataForCountries(casesType) {
         const res = await axios.get(`${url}/countries`);
         const data = res.data;
-        // const filter = ({ CountryCode, TotalConfirmed }) => ({
-        //     CountryCode,
-        //     TotalConfirmed,
-        // });
-        // return console.log(Object.values(data[0].countriesData.map(country => filter(country))));
 
         const countryData = {};
         // get CountryCode and casesQty values from api for every country
         // and insert it as key-value
         data[0].countriesData.forEach(
-            country =>
-                (countryData[country.CountryCode] = country[casesType])
+            country => (countryData[country.CountryCode] = country[casesType])
         );
         // console.log(countryData);
         return countryData;
     }
-    
+
     // // get total confirmed covid cases data by countries
     // static async getTotalConfirmedDataByCountries() {
     //     try {

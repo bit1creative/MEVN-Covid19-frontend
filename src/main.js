@@ -2,7 +2,6 @@ import Vue from 'vue';
 import App from './App.vue';
 import VueRouter from 'vue-router';
 import VueScrollTo from 'vue-scrollto';
-import Vuex from 'vuex'
 import './assets/tailwind.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -22,7 +21,7 @@ import {
     faTwitterSquare,
 } from '@fortawesome/free-brands-svg-icons';
 import { faChartBar } from '@fortawesome/free-regular-svg-icons';
-import router from './router';
+import router from '@/router';
 
 library.add(
     faBars,
@@ -38,15 +37,17 @@ library.add(
     faArrowLeft
 );
 
+import store from '@/store'
+
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.use(VueRouter);
 Vue.use(VueScrollTo);
-Vue.use(Vuex);
 
 Vue.config.productionTip = false;
 
 new Vue({
     router,
+    store,
     render: h => h(App),
 }).$mount('#app');

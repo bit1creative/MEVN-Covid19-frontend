@@ -7,20 +7,18 @@
 </template>
 
 <script>
-    import Header from "@/components/Header";
-    import Footer from "@/components/Footer"
-    import StatsPageContent from "@/components/StatsPageContent"
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import StatsPageContent from '@/components/StatsPageContent';
 
-    export default {
-        name: "StatsPage",
-        components: {
-            Header,
-            Footer,
-            StatsPageContent
-        }
-    }
+export default {
+    name: 'StatsPage',
+    components: {
+        Header,
+        Footer,
+        StatsPageContent,
+    },
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -4,10 +4,10 @@
             class="container flex items-center justify-center md:block mx-auto md:px-4 lg:px-16"
         >
             <div class="text-center pr-4 pt-1 text-gray-500 dark:text-gray-400">
-                <span>© 2021 Ivan Hrytsenko</span><br>
+                <span>© 2021 Ivan Hrytsenko</span><br />
             </div>
             <!-- <div class="hidden md:block w-2/12"></div> -->
-            <div class="pt-1 flex justify-center">
+            <div id="contacts" class="pt-1 flex justify-center">
                 <a
                     class="text-linkedin pr-2 text-xl"
                     href="https://www.linkedin.com/in/ivan-hrytsenko-4a9912208/"
@@ -69,5 +69,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

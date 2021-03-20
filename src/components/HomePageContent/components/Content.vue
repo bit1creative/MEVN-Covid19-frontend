@@ -8,7 +8,7 @@
                     COVID-19
                 </h1>
                 <a
-                    href="#"
+                    href=""
                     v-scroll-to="{
                         element: '#overview',
                         duration: 500,
