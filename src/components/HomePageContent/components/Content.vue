@@ -1,6 +1,6 @@
 <template>
     <div class="bg-pink-50 dark:bg-dark-mode-bg2 py-6 md:py-12">
-        <div class="container mx-auto">
+        <div class="sm:w-full mx-auto">
             <div class="text-center mx-auto select-none">
                 <h1
                     class="text-3xl md:text-4xl font-medium mb-2 py-4 text-gray-200 bg-main-color dark:bg-dark-mode-main-color"
@@ -61,7 +61,9 @@
                 </div>
             </div>
 
-            <div class="md:flex md:flex-wrap mt-6 md:mt-12 w-9/12 mx-auto">
+            <div
+                class="md:flex md:flex-wrap mt-6 md:mt-12 md:w-11/12 lg:w-9/12 mx-auto"
+            >
                 <div class="md:w-1/3 md:px-4 xl:px-6 mt-8 md:mt-0 text-center">
                     <span
                         class="w-20 border-t-2 border-solid border-indigo-200 inline-block mb-3 dark:border-dark-mode-secondary-color"

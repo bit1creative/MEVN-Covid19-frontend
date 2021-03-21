@@ -11,7 +11,7 @@ const store = new Vuex.Store({
         totalData: {},
         error: null,
         dateError: null,
-        showContacts: '',
+        hideContacts: true,
     },
 
     actions: {
@@ -57,10 +57,10 @@ const store = new Vuex.Store({
             state.dateError = error.message;
         },
         SHOW_CONTACTS(state) {
-            if (state.showContacts !== 'show') state.showContacts = 'show';
+            if (state.hideContacts) state.hideContacts = false;
         },
         HIDE_CONTACTS(state) {
-            if (state.showContacts !== 'hide') state.showContacts = 'hide';
+            if (!state.hideContacts) state.hideContacts = true;
         },
     },
 });

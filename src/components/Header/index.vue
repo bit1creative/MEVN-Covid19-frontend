@@ -40,7 +40,7 @@
                     >
                     <div
                         v-on:click="showContacts"
-                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 dark:text-gray-500 dark:hover:bg-dark-mode-btn dark:hover:text-gray-300 transition-colors duration-300 active:text-white active:bg-indigo-200"
+                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 dark:text-gray-500 dark:hover:bg-dark-mode-btn dark:hover:text-gray-300 transition-colors duration-300 active:text-white active:bg-indigo-200 cursor-pointer"
                     >
                         Contacts
                     </div>
@@ -76,5 +76,3 @@ export default {
 </script>
 
 <style lang="css" scoped></style>
-
-v-scroll-to="{ element: '#footer', duration: 1250, easing: 'ease-in-out', }"

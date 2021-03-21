@@ -47,22 +47,14 @@
                 </div>
                 <div :class="{ hidden: !error }" class="select-text">
                     Try again later or
-                    <a
-                        href=""
-                        v-scroll-to="{
-                            element: '#contacts',
-                            duration: 2500,
-                            easing: 'ease-out',
-                        }"
-                        class="underline"
+                    <span
+                        v-on:click="showContacts"
+                        class="underline cursor-pointer"
+                        >contact us</span
                     >
-                        contact us</a
-                    >
-                    the following error message:
+                    with the following error message:
                     <br />
-                    <div v-for="(line, index) in error" :key="index">
-                        <span>{{ line }}</span>
-                    </div>
+                    <span class="text-xs">{{ error.join('') }}</span>
                 </div>
             </button>
         </div>
@@ -113,6 +105,11 @@ export default {
         chartToShow: {
             type: String,
             default: 'TotalConfirmed',
+        },
+    },
+    methods: {
+        showContacts: function() {
+            this.$store.dispatch('showContacts');
         },
     },
     watch: {
