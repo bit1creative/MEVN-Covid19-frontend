@@ -6,7 +6,7 @@
                 >{{ date.substring(0, 10) }}</span
             >
         </div>
-        <div v-if="error" class="m-auto text-center pb-4">
+        <div v-if="error && !date" class="m-auto text-center pb-4">
             <span class="text-xs text-gray-600 dark:text-gray-200"
                 >Error occured while trying to get Date. <br />
                 {{ error }}</span

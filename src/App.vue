@@ -23,4 +23,10 @@ html {
     cursor: pointer;
     background-color: #ff1453;
 }
+@media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar-thumb {
+        cursor: pointer;
+        background-color: #90b8f8;
+    }
+}
 </style>

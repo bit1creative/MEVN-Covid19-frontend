@@ -2,7 +2,7 @@
     <div>
         <div class="block md:hidden mx-auto py-4 text-center">
             <div
-                class="w-full flex justify-center items-center"
+                class="w-full flex justify-center items-center dark:text-dark-mode-secondary-color"
                 :id="casesTypeId"
             >
                 <font-awesome-icon
@@ -10,7 +10,7 @@
                     v-on:click="changeCasesType('prev')"
                     class="text-sm"
                 ></font-awesome-icon>
-                <div class="font-semibold w-4/12 sm:w-3/12">
+                <div class="font-semibold w-4/12 sm:w-3/12 mb-1">
                     <span class="mx-2">{{ casesTypes[casesTypeId] }}</span>
                 </div>
                 <font-awesome-icon

@@ -45,7 +45,7 @@
                 <div :class="{ hidden: error }">
                     Collecting data ...
                 </div>
-                <div :class="{ hidden: !error }" class="select-text">
+                <div v-if="error" class="select-text">
                     Try again later or
                     <span
                         v-on:click="showContacts"

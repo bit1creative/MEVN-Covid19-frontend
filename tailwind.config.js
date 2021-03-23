@@ -51,6 +51,19 @@ module.exports = {
                     '30%': { opacity: '1' },
                 },
             },
+            fill: theme => ({
+                'main-color': theme('colors.main-color'),
+                'dark-mode-bg': theme('colors.dark-mode-bg'),
+                'dark-mode-bg2': theme('colors.dark-mode-bg2'),
+                'dark-mode-bg3': theme('colors.dark-mode-bg3'),
+                'dark-mode-main-color': theme('colors.dark-mode-main-color'),
+                'dark-mode-secondary-color': theme(
+                    'colors.dark-mode-secondary-color'
+                ),
+                'dark-mode-title': theme('colors.dark-mode-title'),
+                'pink-200': theme('colors.pink.200'),
+                'pink-100': theme('colors.pink.100'),
+            }),
             animation: {
                 slidein: 'slidein 0.7s ease-in-out',
                 appear: 'appear 0.4s forwards',
@@ -58,6 +71,10 @@ module.exports = {
             },
             transitionProperty: {
                 width: 'width',
+                margin: 'margin',
+            },
+            transitionTimingFunction: {
+                'slow-in-quick-out': 'cubic-bezier(.23,.15,.28,1.05)',
             },
         },
     },
@@ -69,7 +86,8 @@ module.exports = {
             opacity: ['active', 'dark'],
             fontSize: ['responsive', 'hover'],
             lineHeight: ['responsive', 'hover'],
+            fill: ['hover', 'focus', 'dark'],
         },
     },
-    plugins: [],
+    plugins: [require('tailwindcss-textshadow')],
 };
