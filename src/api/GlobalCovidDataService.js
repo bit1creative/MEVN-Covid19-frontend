@@ -13,7 +13,7 @@ class GlobalCovidDataService {
     // get total covid data
     static async getTotalCovidData() {
         const res = await axios.get(`${url}/total`);
-        const data = res?.data;
+        const data = res?.data[0]?.globalData;
         return data;
     }
 

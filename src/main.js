@@ -12,6 +12,7 @@ import {
     faChevronUp,
     faArrowLeft,
     faArrowRight,
+    faChartLine,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
@@ -34,10 +35,11 @@ library.add(
     faTwitterSquare,
     faChartBar,
     faArrowRight,
-    faArrowLeft
+    faArrowLeft,
+    faChartLine
 );
 
-import store from '@/store'
+import store from '@/store';
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

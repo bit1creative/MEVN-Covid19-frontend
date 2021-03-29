@@ -141,7 +141,7 @@
     </div>
 </template>
 <script>
-import { mapState } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 export default {
     name: 'Contacts',
     data() {
@@ -154,19 +154,28 @@ export default {
             iconTwitterPos: 'ml-96 -my-12',
         };
     },
+
     methods: {
         toggleHideContactsAnimation: function() {
-            this.contactsW = 'w-7/12 md:w-6/12';
-            setTimeout(() => this.$store.dispatch('hideContacts'), 0);
+            // this.contactsW = 'w-7/12 md:w-6/12';
+            // setTimeout(() => this.hideContactsPage(), 450);
+            this.hideContactsPage();
+            //////////////////////////////////////////////////////////////////
+            // setTimeout(() => this.$store.dispatch('hideContacts'), 450);
+            // this.$store.dispatch('hideContacts');
         },
+        ...mapActions({ hideContactsPage: 'hideContacts' }),
     },
-    computed: mapState({
-        hideContacts: 'hideContacts',
-    }),
+    computed: {
+        ...mapGetters({
+            hideContacts: 'GET_HIDE_CONTACTS_STATE',
+        }),
+    },
     watch: {
         hideContacts: function(newVal) {
             this.contactsW = newVal ? 'w-0' : 'w-5/12';
             if (!newVal) this.iconsOpacity = 'block';
+            let time = newVal ? 0 : 400;
             setTimeout(() => {
                 this.iconsOpacity = newVal
                     ? 'opacity-0 ease-slow-in-quick-out'
@@ -183,7 +192,7 @@ export default {
                 this.iconTwitterPos = newVal
                     ? 'ml-96 md:-my-12'
                     : '-ml-8 my-12';
-            }, 200);
+            }, time);
             //////////////////////////////////////////////
             if (newVal)
                 setTimeout(() => {

@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 import MapChart from 'vue-chart-map';
 
@@ -95,8 +95,8 @@ export default {
     },
     data() {
         return {
-            highColor: '#ff1453',
-            lowColor: '#ff99b4',
+            highColor: '#d83737',
+            lowColor: '#fde2e2',
             defaultCountryFillColor: '#dadada',
             darkMode: 'false',
         };
@@ -109,20 +109,26 @@ export default {
     },
     methods: {
         showContacts: function() {
-            this.$store.dispatch('showContacts');
+            this.showContacts();
+            // this.$store.dispatch('showContacts');
         },
+        ...mapActions(['showContacts', 'getCountryData']),
     },
     watch: {
         chartToShow: function(newChart) {
-            this.$store.dispatch('getCountryData', newChart);
+            this.getCountryData(newChart);
+            // this.$store.dispatch('getCountryData', newChart);
         },
     },
-    computed: mapState({
-        countryData: 'countryData',
-        error: 'error',
-    }),
+    computed: {
+        ...mapGetters({
+            countryData: 'GET_COUNTRY_DATA',
+            error: 'GET_CHART_MAP_ERROR',
+        }),
+    },
     created: function() {
-        this.$store.dispatch('getCountryData', this.chartToShow);
+        this.getCountryData(this.chartToShow);
+        // this.$store.dispatch('getCountryData', this.chartToShow);
     },
     mounted: function() {
         if (

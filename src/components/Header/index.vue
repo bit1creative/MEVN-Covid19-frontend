@@ -30,17 +30,17 @@
                     ></span>
                     <router-link
                         to="/"
-                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-dark-mode-btn dark:hover:text-gray-300 transition-colors duration-300 active:text-white active:bg-indigo-200"
+                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-dark-mode-bg2 dark:hover:text-gray-300 transition-colors duration-300 active:text-white active:bg-indigo-200"
                         >Home</router-link
                     >
                     <router-link
                         to="/stats"
-                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-dark-mode-btn dark:hover:text-gray-300 transition-colors duration-300 active:text-white active:bg-indigo-200"
+                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-dark-mode-bg2 dark:hover:text-gray-300 transition-colors duration-300 active:text-white active:bg-indigo-200"
                         >Statistics</router-link
                     >
                     <div
                         v-on:click="showContacts"
-                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 dark:text-gray-500 dark:hover:bg-dark-mode-btn dark:hover:text-gray-300 transition-colors duration-300 active:text-white active:bg-indigo-200 cursor-pointer"
+                        class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 dark:text-gray-500 dark:hover:bg-dark-mode-bg2 dark:hover:text-gray-300 transition-colors duration-300 active:text-white active:bg-indigo-200 cursor-pointer"
                     >
                         Contacts
                     </div>
@@ -55,6 +55,7 @@
 <script>
 import ScrollTopBtn from './components/ScrollTopBtn.vue';
 import Contacts from './components/Contacts.vue';
+import { mapActions } from 'vuex';
 
 export default {
     name: 'Header',
@@ -69,8 +70,10 @@ export default {
     },
     methods: {
         showContacts: function() {
-            this.$store.dispatch('showContacts');
+            this.showContacts();
+            // this.$store.dispatch('showContacts');
         },
+        ...mapActions(['showContacts']),
     },
 };
 </script>

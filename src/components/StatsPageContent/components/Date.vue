@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div v-if="date" class="m-auto text-center pt-2 md:pt-4">
+        <div v-if="date" class="m-auto text-center pt-2 md:pt-4 pb-2">
             <span
-                class="font-semibold text-xl md:text-3xl text-gray-600 dark:text-gray-200"
+                class="font-semibold text-xl md:text-3xl text-main-color text-opacity-70 dark:text-gray-200 dark:text-opacity-90"
                 >{{ date.substring(0, 10) }}</span
             >
         </div>
@@ -16,16 +16,22 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
     name: 'Date',
-    computed: mapState({
-        date: 'date',
-        error: 'dateError',
-    }),
+    computed: {
+        ...mapGetters({
+            date: 'GET_DATE',
+            error: 'GET_DATE_ERROR',
+        }),
+    },
+    methods: {
+        ...mapActions(['getDate']),
+    },
     created() {
-        this.$store.dispatch('getDate');
+        this.getDate();
+        // this.$store.dispatch('getDate');
     },
 };
 </script>

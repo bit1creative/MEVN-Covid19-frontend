@@ -1,6 +1,8 @@
 <template>
     <div id="chart-map">
         <date></date>
+        <data-cards />
+        <router-link-to-country></router-link-to-country>
         <nav-bar @clicked="onClickTypeOfCasesData"></nav-bar>
         <chart-map :chartToShow="chartToShow" />
     </div>
@@ -10,6 +12,8 @@
 import ChartMap from './components/ChartMap.vue';
 import NavBar from './components/NavBar.vue';
 import Date from './components/Date.vue';
+import DataCards from './components/DataCards.vue';
+import RouterLinkToCountry from './components/RouterLinkToCountry.vue';
 
 export default {
     name: 'StatsPageContent',
@@ -17,6 +21,8 @@ export default {
         ChartMap,
         NavBar,
         Date,
+        DataCards,
+        RouterLinkToCountry,
     },
     data() {
         return {

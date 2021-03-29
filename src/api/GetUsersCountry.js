@@ -1,18 +1,14 @@
-import axios from 'axiox'
+import axios from 'axios';
 
 const url = 'http://localhost:3000/api';
 
-class GetUsersCountry {
+class GetUsersCountryData {
     // get total covid data
     static async getCountry() {
-        try {
-            const res = await axios.get(`${url}/ip`);
-            const data = res.data;
-            return data;
-        } catch (error) {
-            return console.log(error);
-        }
+        const res = await axios.get(`${url}/ip`);
+        const data = res.data;
+        return data;
     }
 }
 
-export default GetUsersCountry;
+export default GetUsersCountryData;

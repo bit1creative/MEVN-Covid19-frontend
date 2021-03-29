@@ -5,6 +5,10 @@ module.exports = {
     darkMode: 'media', // or 'media' or 'class'
     theme: {
         extend: {
+            width: {
+                '150': '150%',
+                '125': '125%',
+            },
             colors: {
                 'main-color': '#ff1453',
                 'dark-mode-bg': '#222831',
@@ -72,9 +76,10 @@ module.exports = {
             transitionProperty: {
                 width: 'width',
                 margin: 'margin',
+                inset: 'inset',
             },
             transitionTimingFunction: {
-                'slow-in-quick-out': 'cubic-bezier(.23,.15,.28,1.05)',
+                'slow-in-quick-out': 'cubic-bezier(0,1.21,.87,.68)',
             },
         },
     },
@@ -82,11 +87,14 @@ module.exports = {
         extend: {
             backgroundColor: ['active'],
             animation: ['responsive', 'hover'],
-            margin: ['responsive', 'hover'],
+            margin: ['responsive', 'hover', 'group-hover'],
             opacity: ['active', 'dark'],
-            fontSize: ['responsive', 'hover'],
+            fontSize: ['responsive', 'hover', 'group-hover'],
             lineHeight: ['responsive', 'hover'],
             fill: ['hover', 'focus', 'dark'],
+            borderWidth: ['dark'],
+            boxShadow: ['dark'],
+            inset: ['hover', 'focus', 'group-hover'],
         },
     },
     plugins: [require('tailwindcss-textshadow')],

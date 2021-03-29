@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="py-4">
         <div class="block md:hidden mx-auto py-4 text-center">
             <div
                 class="w-full flex justify-center items-center dark:text-dark-mode-secondary-color"
@@ -10,7 +10,7 @@
                     v-on:click="changeCasesType('prev')"
                     class="text-sm"
                 ></font-awesome-icon>
-                <div class="font-semibold w-4/12 sm:w-3/12 mb-1">
+                <div class="font-semibold w-4/12 sm:w-3/12">
                     <span class="mx-2">{{ casesTypes[casesTypeId] }}</span>
                 </div>
                 <font-awesome-icon
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div
-            class="hidden py-4 md:grid grid-flow-col auto-cols-auto md:px-14 lg:px-44 xl:px-72 m-auto text-center md:text-base md:font-light divide-x-2 divide-main-color dark:text-gray-200 divide-dark-mode-main-color select-none"
+            class="hidden py-4 md:grid grid-flow-col auto-cols-auto md:px-14 lg:px-44 xl:px-72 m-auto text-center md:text-base md:font-light divide-x-2 divide-main-color dark:text-gray-200 dark:divide-dark-mode-main-color select-none"
         >
             <span
                 v-on:click="clickedTypeOfCasesData('TotalConfirmed', $event)"

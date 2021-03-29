@@ -3,7 +3,7 @@
         <div class="sm:w-full mx-auto">
             <div class="text-center mx-auto select-none">
                 <h1
-                    class="text-3xl md:text-4xl font-medium mb-2 py-4 text-gray-200 bg-main-color dark:bg-dark-mode-main-color"
+                    class="text-3xl md:text-4xl font-medium mb-2 py-4 text-gray-200 bg-main-color dark:bg-dark-mode-main-color dark:text-gray-100"
                 >
                     COVID-19
                 </h1>
@@ -34,11 +34,11 @@
                 </div> -->
             </div>
             <div
-                class="relative flex justify-center w-full h-44 sm:h-64 lg:h-112"
+                class="relative flex justify-center overflow-hidden w-full h-44 sm:h-64 lg:h-112"
             >
                 <img
                     src="https://www.who.int/images/default-source/health-topics/coronavirus/gettyimages-1203376093.tmb-1366v.png?Culture=en&sfvrsn=6e0c1bc7_6%201366w"
-                    alt="mockup"
+                    alt="photo of people wearing mask"
                     class="shadow w-full object-cover"
                 />
                 <div
@@ -53,16 +53,28 @@
                             class="animate-ping inline-flex h-full w-full rounded-full dark:bg-dark-mode-secondary-color opacity-75"
                         ></span>
                     </span>
-                    <span
-                        class="absolute text-3xl lg:text-5xl font-sans text-gray-600 dark:text-dark-mode-main-color font-normal ml-4 lg:ml-8 mb-2 lg:mb-4 bottom-0"
-                    >
-                        Overview
-                    </span>
+                    <div class="absolute w-full h-full overflow-hidden">
+                        <span
+                            class="absolute text-7xl lg:text-9xl font-sans text-main-color opacity-20 dark:opacity-30 dark:text-dark-mode-main-color font-bold ml-10 md:ml-8 lg:ml-32 mb-6 lg:mb-10 bottom-0"
+                        >
+                            Overview
+                        </span>
+                        <span
+                            class="absolute text-7xl lg:text-9xl font-sans text-main-color opacity-30 dark:opacity-20 dark:text-dark-mode-main-color font-bold -ml-32 lg:-ml-72 -mb-2 lg:-mb-4 bottom-0"
+                        >
+                            Overview
+                        </span>
+                        <span
+                            class="absolute text-3xl lg:text-5xl font-sans text-main-color dark:text-dark-mode-main-color font-light ml-4 lg:ml-8 mb-2 lg:mb-4 bottom-0"
+                        >
+                            Overview
+                        </span>
+                    </div>
                 </div>
             </div>
 
             <div
-                class="md:flex md:flex-wrap mt-6 md:mt-12 md:w-11/12 lg:w-9/12 mx-auto"
+                class="md:flex md:flex-wrap mx-2 mt-6 md:mt-12 md:w-11/12 lg:w-9/12 md:mx-auto"
             >
                 <div class="md:w-1/3 md:px-4 xl:px-6 mt-8 md:mt-0 text-center">
                     <span
