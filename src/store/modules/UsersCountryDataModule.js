@@ -1,5 +1,5 @@
 import GetUsersCountryData from '@/api/GetUsersCountry.js';
-import { getOnlyCases } from '../helpers/UsersCountryDataHelper.js';
+import { getTotalCases, getDate } from '../helpers/UsersCountryDataHelper.js';
 import axios from 'axios';
 
 const state = () => ({
@@ -17,11 +17,9 @@ const getters = {
     GET_USERS_COUNTRY_DATA_ERROR: state => state.usersCountryDataError,
     GET_USERS_COUNTRY_DATA: state => state.usersCountryData,
     GET_USERS_COUNTRY_TOTAL_DATA: (state, rootGetters) =>
-        state.usersCountryData ? getOnlyCases(rootGetters) : null,
-    GET_USERS_DATE: state =>
-        state.usersCountryData
-            ? state.usersCountryData[state.usersCountryData.length - 1]['Date']
-            : null,
+        state.usersCountryData ? getTotalCases(rootGetters) : null,
+    GET_USERS_DATE: (state, rootGetters) =>
+        state.usersCountryData ? getDate(rootGetters) : null,
 };
 
 const actions = {
@@ -46,11 +44,35 @@ const actions = {
                     getters['GET_USERS_COUNTRY_CODE']
             )
             .then(res => {
-                commit('SET_USERS_COUNTRY_DATA', res.data);
+                let data = {};
+                res.data.forEach(day => {
+                    data[day.Date.substring(0, 10)] = Object.keys(day)
+                        .filter(key =>
+                            [
+                                'Confirmed',
+                                'Deaths',
+                                'Recovered',
+                                'Active',
+                            ].includes(key)
+                        )
+                        .reduce((obj, key) => {
+                            obj[key] = day[key];
+                            return obj;
+                        }, {});
+                });
+                commit('SET_USERS_COUNTRY_DATA', data);
             })
             .catch(error => {
                 commit('USERS_COUNTRY_DATA_ERROR_EVENT', error);
             });
+    },
+
+    userChangesCountry: function({ getters }, newCountry) {
+        if (
+            newCountry in
+            [getters['GET_USERS_COUNTRY_CODE'], getters['GET_USERS_COUNTRY']]
+        )
+            return;
     },
 };
 

@@ -15,11 +15,17 @@ const getters = {
 };
 
 const actions = {
-    async getCountryData({ commit, dispatch }, casesType) {
-        dispatch('getTotalData', {}, { root: true });
+    async getCountryData(
+        { commit, dispatch, getters, rootGetters },
+        casesType
+    ) {
         commit('SET_COUNTRY_DATA', {});
+        if (!rootGetters['GET_TOTAL_DATA'])
+            dispatch('getTotalData', {}, { root: true });
         if (getters['GET_CHART_MAP_ERROR'] !== null)
             commit('CHARTMAP_ERROR_EVENT', null);
+        if (!getters['GET_DATE']) dispatch('getDate');
+
         GlobalCovidDataService.getDataForCountries(casesType)
             .then(res => {
                 if (getters['GET_DATE_ERROR'] !== null) dispatch('getDate');

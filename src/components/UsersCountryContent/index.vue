@@ -8,9 +8,26 @@
         </div>
         <div class="text-center py-2">
             <span class="text-3xl font-bold">{{ country }}</span> <br />
-            <span>search tab</span>
+            <div
+                class="w-10/12 sm:w-7/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 mt-4 mx-auto"
+            >
+                <autocomplete
+                    :search="search"
+                    :autoSelect="true"
+                    placeholder="Search for a country"
+                ></autocomplete>
+            </div>
         </div>
         <total-info></total-info>
+        <div
+            v-if="data"
+            class="grid grid-cols-1 xl:grid-cols-2 w-full md:w-11/12 mx-auto"
+        >
+            <Chart class="ml-4" :chartdata="chartdata('Confirmed')"></Chart>
+            <Chart class="ml-4" :chartdata="chartdata('Active')"></Chart>
+            <Chart class="ml-4" :chartdata="chartdata('Recovered')"></Chart>
+            <Chart class="ml-4" :chartdata="chartdata('Deaths')"></Chart>
+        </div>
         <br />
         <br />
     </div>
@@ -18,14 +35,68 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import TotalInfo from './components/TotalInfo';
+import Chart from './components/Chart';
+import Autocomplete from '@trevoreyre/autocomplete-vue';
+import countries from '../../../countries.json';
+import '@trevoreyre/autocomplete-vue/dist/style.css';
 
 export default {
     name: 'UsersCountryContent',
     components: {
         TotalInfo,
+        Chart,
+        Autocomplete,
+    },
+    data() {
+        return {
+            chartColors: {
+                Deaths: {
+                    bg: 'rgba(231, 76, 60 ,0.2)',
+                    border: 'rgba(231, 76, 60 ,1)',
+                },
+                Recovered: {
+                    bg: 'rgba(26, 188, 156,0.2)',
+                    border: 'rgba(26, 188, 156,1)',
+                },
+                Confirmed: {
+                    bg: 'rgba(165, 105, 189 ,0.2)',
+                    border: 'rgba(165, 105, 189 ,1)',
+                },
+                Active: {
+                    bg: 'rgba(243, 156, 18,0.2)',
+                    border: 'rgba(243, 156, 18,1)',
+                },
+            },
+        };
     },
     methods: {
         ...mapActions(['getUsersCountryData', 'getUsersCountry']),
+        chartdata: function(casesType) {
+            if (this.data)
+                return {
+                    labels: Object.keys(this.data),
+                    datasets: [
+                        {
+                            label: casesType,
+                            backgroundColor: this.chartColors[casesType].bg,
+                            borderColor: this.chartColors[casesType].border,
+                            data: Object.values(this.data).map(
+                                el => el[casesType]
+                            ),
+                            pointRadius: 0,
+                        },
+                    ],
+                };
+            return null;
+        },
+        search(input) {
+            if (input.length < 1) {
+                return [];
+            }
+            return Object.values(countries).filter(country => {
+                return country.toLowerCase().startsWith(input.toLowerCase());
+            });
+        },
     },
     computed: {
         ...mapGetters({

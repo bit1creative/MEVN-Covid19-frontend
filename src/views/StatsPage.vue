@@ -1,7 +1,7 @@
 <template>
     <div class="stats-page">
         <Header />
-        <StatsPageContent />
+        <stats-page-content />
         <Footer />
     </div>
 </template>

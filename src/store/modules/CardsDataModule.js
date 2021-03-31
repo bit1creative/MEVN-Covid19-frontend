@@ -12,8 +12,9 @@ const getters = {
 
 const actions = {
     async getTotalData({ commit, getters }) {
-        if (getters['GET_CARDS_DATA_ERROR'] !== null)
+        if (getters['GET_CARDS_DATA_ERROR'] !== null) {
             commit('CARDS_DATA_ERROR_EVENT', null);
+        }
         GlobalCovidDataService.getTotalCovidData()
             .then(res => {
                 commit('SET_TOTAL_DATA', res);
