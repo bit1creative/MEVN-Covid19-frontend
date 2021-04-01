@@ -60,7 +60,7 @@ const mutations = {
     },
     CHARTMAP_ERROR_EVENT(state, error) {
         if (error === null) state.chartMapError = error;
-        else state.chartMapError = error.stack.split('\n');
+        else state.chartMapError = error.stack.split('\n') || error;
     },
     DATE_ERROR_EVENT(state, error) {
         if (error === null) state.dateError = error;

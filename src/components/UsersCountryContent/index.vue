@@ -12,8 +12,10 @@
                 class="w-10/12 sm:w-7/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 mt-4 mx-auto"
             >
                 <autocomplete
+                    ref="searchTab"
                     :search="search"
                     :autoSelect="true"
+                    @submit="handleSubmit"
                     placeholder="Search for a country"
                 ></autocomplete>
             </div>
@@ -23,19 +25,21 @@
             v-if="data"
             class="grid grid-cols-1 xl:grid-cols-2 w-full md:w-11/12 mx-auto"
         >
-            <Chart class="ml-4" :chartdata="chartdata('Confirmed')"></Chart>
-            <Chart class="ml-4" :chartdata="chartdata('Active')"></Chart>
-            <Chart class="ml-4" :chartdata="chartdata('Recovered')"></Chart>
-            <Chart class="ml-4" :chartdata="chartdata('Deaths')"></Chart>
+            <Chart class="ml-4" :chart-data="setChartdata('Confirmed')"></Chart>
+            <Chart class="ml-4" :chart-data="setChartdata('Active')"></Chart>
+            <Chart class="ml-4" :chart-data="setChartdata('Recovered')"></Chart>
+            <Chart class="ml-4" :chart-data="setChartdata('Deaths')"></Chart>
         </div>
-        <br />
-        <br />
+        <country-error v-if="countryError && !data"></country-error>
+        <data-error v-if="dataError && !data" :error="dataError"></data-error>
     </div>
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import TotalInfo from './components/TotalInfo';
 import Chart from './components/Chart';
+import CountryError from './components/ErrorComponents/CountryError.vue';
+import DataError from './components/ErrorComponents/DataError.vue';
 import Autocomplete from '@trevoreyre/autocomplete-vue';
 import countries from '../../../countries.json';
 import '@trevoreyre/autocomplete-vue/dist/style.css';
@@ -46,6 +50,8 @@ export default {
         TotalInfo,
         Chart,
         Autocomplete,
+        CountryError,
+        DataError,
     },
     data() {
         return {
@@ -70,8 +76,13 @@ export default {
         };
     },
     methods: {
-        ...mapActions(['getUsersCountryData', 'getUsersCountry']),
-        chartdata: function(casesType) {
+        ...mapActions([
+            'getUsersCountryData',
+            'getUsersCountry',
+            'showContacts',
+            'userChangedCountry',
+        ]),
+        setChartdata: function(casesType) {
             if (this.data)
                 return {
                     labels: Object.keys(this.data),
@@ -97,6 +108,14 @@ export default {
                 return country.toLowerCase().startsWith(input.toLowerCase());
             });
         },
+        handleSubmit(result) {
+            this.userChangedCountry({
+                name: result,
+                code: Object.keys(countries).find(
+                    country => countries[country] === result
+                ),
+            });
+        },
     },
     computed: {
         ...mapGetters({
@@ -104,12 +123,20 @@ export default {
             country: 'GET_USERS_COUNTRY',
             usersCountryCode: 'GET_USERS_COUNTRY_CODE',
             data: 'GET_USERS_COUNTRY_DATA',
+            dataError: 'GET_USERS_COUNTRY_DATA_ERROR',
+            countryError: 'GET_USERS_COUNTRY_ERROR',
         }),
+    },
+    watch: {
+        countryError: function(val) {
+            if (val !== null) {
+                setTimeout(this.$refs.searchTab.$refs.input.focus(), 2000);
+            }
+        },
     },
     beforeCreate: function() {
         this.$store.dispatch('getUsersCountry');
     },
-    created() {},
 };
 </script>
 <style lang=""></style>

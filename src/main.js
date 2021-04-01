@@ -13,6 +13,7 @@ import {
     faArrowLeft,
     faArrowRight,
     faChartLine,
+    faExclamationTriangle,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
@@ -36,7 +37,8 @@ library.add(
     faChartBar,
     faArrowRight,
     faArrowLeft,
-    faChartLine
+    faChartLine,
+    faExclamationTriangle
 );
 
 import store from '@/store';

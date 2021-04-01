@@ -10,7 +10,7 @@
         >
             <button
                 v-bind:class="scrollUpBtnClass"
-                class="fixed bottom-5 right-3 md:right-5 focus:outline-none text-3xl text-gray-100 flex items-center justify-center h-14 w-14 bg-main-color opacity-70 rounded-full dark:bg-dark-mode-main-color dark:text-white dark:opacity-90"
+                class="fixed bottom-5 right-3 md:right-5 focus:outline-none text-3xl text-gray-100 flex items-center justify-center h-14 w-14 bg-main-color opacity-70 rounded-full dark:bg-dark-mode-main-color dark:text-white dark:opacity-90 z-50"
             >
                 <font-awesome-icon
                     :icon="['fas', 'chevron-up']"

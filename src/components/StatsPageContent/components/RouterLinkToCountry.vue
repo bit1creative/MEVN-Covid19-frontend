@@ -1,5 +1,5 @@
 <template>
-    <div v-if="date" class="pt-4">
+    <div class="pt-4">
         <button
             class="group block mx-auto px-4 py-2 border-2 border-main-color dark:border-dark-mode-main-color overflow-hidden select-none"
         >

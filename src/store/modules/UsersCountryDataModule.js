@@ -3,8 +3,8 @@ import { getTotalCases, getDate } from '../helpers/UsersCountryDataHelper.js';
 import axios from 'axios';
 
 const state = () => ({
-    usersCountry: 'China',
-    usersCountryCode: 'CN',
+    usersCountry: null,
+    usersCountryCode: null,
     usersCountryError: null,
     usersCountryDataError: null,
     usersCountryData: null,
@@ -27,13 +27,13 @@ const actions = {
         GetUsersCountryData.getCountry()
             .then(res => {
                 if (getters['GET_USERS_COUNTRY_ERROR'] !== null)
-                    commit('USERS_COUNTRY_CODE_ERROR_EVENT', null);
+                    commit('USERS_COUNTRY_ERROR_EVENT', null);
                 commit('SET_USERS_COUNTRY', res.country);
                 commit('SET_USERS_COUNTRY_CODE', res.country_code);
             })
             .then(() => dispatch('getUsersCountryData'))
             .catch(error => {
-                commit('USERS_COUNTRY_CODE_ERROR_EVENT', error);
+                commit('USERS_COUNTRY_ERROR_EVENT', error);
             });
     },
 
@@ -67,12 +67,17 @@ const actions = {
             });
     },
 
-    userChangesCountry: function({ getters }, newCountry) {
+    userChangedCountry: function({ getters, commit, dispatch }, newCountry) {
         if (
             newCountry in
             [getters['GET_USERS_COUNTRY_CODE'], getters['GET_USERS_COUNTRY']]
         )
             return;
+        if (getters['GET_USERS_COUNTRY_ERROR'] !== null)
+            commit('USERS_COUNTRY_ERROR_EVENT', null);
+        commit('SET_USERS_COUNTRY', newCountry.name);
+        commit('SET_USERS_COUNTRY_CODE', newCountry.code);
+        dispatch('getUsersCountryData');
     },
 };
 
@@ -86,13 +91,13 @@ const mutations = {
     SET_USERS_COUNTRY_DATA: function(state, data) {
         state.usersCountryData = data;
     },
-    USERS_COUNTRY_CODE_ERROR_EVENT: function(state, error) {
+    USERS_COUNTRY_ERROR_EVENT: function(state, error) {
         if (error === null) state.usersCountryError = error;
         else state.usersCountryError = error.message;
     },
     USERS_COUNTRY_DATA_ERROR_EVENT: function(state, error) {
         if (error === null) state.countryDataError = error;
-        else state.usersCountryDataError = error.message;
+        else state.usersCountryDataError = error.name + error.message;
     },
 };
 
