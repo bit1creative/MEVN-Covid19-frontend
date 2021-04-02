@@ -6,7 +6,7 @@
                 >{{ date.substring(0, 10) }}</span
             >
         </div>
-        <div class="text-center py-2">
+        <div class="text-center py-2 dark:text-dark-mode-title">
             <span class="text-3xl font-bold">{{ country }}</span> <br />
             <div
                 class="w-10/12 sm:w-7/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 mt-4 mx-auto"
@@ -23,7 +23,7 @@
         <total-info></total-info>
         <div
             v-if="data"
-            class="grid grid-cols-1 xl:grid-cols-2 w-full md:w-11/12 mx-auto"
+            class="grid grid-cols-1 xl:grid-cols-2 w-full md:w-11/12 mx-auto mb-4"
         >
             <Chart class="ml-4" :chart-data="setChartdata('Confirmed')"></Chart>
             <Chart class="ml-4" :chart-data="setChartdata('Active')"></Chart>

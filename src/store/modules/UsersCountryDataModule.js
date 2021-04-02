@@ -63,6 +63,7 @@ const actions = {
                 commit('SET_USERS_COUNTRY_DATA', data);
             })
             .catch(error => {
+                commit('SET_USERS_COUNTRY_DATA', null);
                 commit('USERS_COUNTRY_DATA_ERROR_EVENT', error);
             });
     },

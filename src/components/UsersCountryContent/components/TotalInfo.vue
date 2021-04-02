@@ -8,12 +8,14 @@
             :key="key"
             class="flex flex-col text-center p-2 sm:p-3 md:p-4"
         >
-            <span class="inline-block text-2xl font-medium text-gray-600">{{
-                key
-            }}</span>
-            <span class="inline-block text-normal text-gray-500">{{
-                val
-            }}</span>
+            <span
+                class="inline-block text-2xl font-medium text-gray-600 dark:text-gray-300"
+                >{{ key }}</span
+            >
+            <span
+                class="inline-block text-normal text-gray-500 dark:text-gray-400"
+                >{{ val }}</span
+            >
         </div>
     </div>
 </template>
