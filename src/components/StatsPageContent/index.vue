@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ChartMap from './components/ChartMap.vue';
+import ChartMap from './components/ChartMap';
 import NavBar from './components/NavBar.vue';
 import Date from './components/Date.vue';
 import DataCards from './components/DataCards.vue';

@@ -5,6 +5,7 @@ const state = () => ({
     date: null,
     chartMapError: null,
     dateError: null,
+    chartDataIsLoading: false,
 });
 
 const getters = {
@@ -12,6 +13,7 @@ const getters = {
     GET_DATE: state => state.date,
     GET_CHART_MAP_ERROR: state => state.chartMapError,
     GET_DATE_ERROR: state => state.dateError,
+    GET_CHART_DATA_LOADING_STATUS: state => state.chartDataIsLoading,
 };
 
 const actions = {
@@ -19,7 +21,7 @@ const actions = {
         { commit, dispatch, getters, rootGetters },
         casesType
     ) {
-        commit('SET_COUNTRY_DATA', {});
+        commit('SET_LOADING_STATUS', true);
         if (!rootGetters['GET_TOTAL_DATA'])
             dispatch('getTotalData', {}, { root: true });
         if (getters['GET_CHART_MAP_ERROR'] !== null)
@@ -30,6 +32,7 @@ const actions = {
             .then(res => {
                 if (getters['GET_DATE_ERROR'] !== null) dispatch('getDate');
                 commit('SET_COUNTRY_DATA', res);
+                commit('SET_LOADING_STATUS', false);
             })
             .catch(error => {
                 console.log(error);
@@ -65,6 +68,9 @@ const mutations = {
     DATE_ERROR_EVENT(state, error) {
         if (error === null) state.dateError = error;
         else state.dateError = error.message;
+    },
+    SET_LOADING_STATUS(state, newStatus) {
+        state.chartDataIsLoading = newStatus;
     },
 };
 
