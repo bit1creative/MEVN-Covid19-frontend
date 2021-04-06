@@ -2,7 +2,7 @@ const plugin = require('tailwindcss/plugin');
 
 module.exports = {
     purge: { content: ['./public/**/*.html', './src/**/*.vue'] },
-    darkMode: 'media', // or 'media' or 'class'
+    darkMode: 'class', // or 'media' or 'class'
     theme: {
         extend: {
             width: {
@@ -85,7 +85,7 @@ module.exports = {
     },
     variants: {
         extend: {
-            backgroundColor: ['active'],
+            backgroundColor: ['active', 'checked', 'first'],
             animation: ['responsive', 'hover'],
             margin: ['responsive', 'hover', 'group-hover'],
             opacity: ['active', 'dark'],

@@ -4,6 +4,7 @@ import CardsDataModule from './modules/CardsDataModule.js';
 import ChartMapModule from './modules/ChartMapModule.js';
 import ContactsShowState from './modules/ContactsShowState.js';
 import UsersCountryDataModule from './modules/UsersCountryDataModule.js';
+import Theme from './modules/Theme.js';
 
 Vue.use(Vuex);
 
@@ -14,6 +15,7 @@ const store = new Vuex.Store({
         CardsDataModule,
         ContactsShowState,
         UsersCountryDataModule,
+        Theme,
     },
 });
 

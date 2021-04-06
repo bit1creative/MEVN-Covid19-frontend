@@ -1,7 +1,7 @@
 <template>
     <div
         v-if="totalData"
-        class="grid grid-rows-4 md:grid-cols-4 md:grid-rows-1 justify-center py-8 md:px-14 lg:px-44 xl:px-72 divide-y-2 md:divide-x-2 md:divide-y-0 divide-main-color"
+        class="grid grid-rows-4 md:grid-cols-4 md:grid-rows-1 justify-center py-8 md:px-14 lg:px-44 xl:px-72 divide-y-2 md:divide-x-2 md:divide-y-0 divide-main-color dark:divide-dark-mode-main-color"
     >
         <div
             v-for="[key, val] of Object.entries(totalData)"

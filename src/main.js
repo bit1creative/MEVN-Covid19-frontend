@@ -14,6 +14,8 @@ import {
     faArrowRight,
     faChartLine,
     faExclamationTriangle,
+    faMoon,
+    faSun,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
@@ -38,7 +40,9 @@ library.add(
     faArrowRight,
     faArrowLeft,
     faChartLine,
-    faExclamationTriangle
+    faExclamationTriangle,
+    faMoon,
+    faSun
 );
 
 import store from '@/store';

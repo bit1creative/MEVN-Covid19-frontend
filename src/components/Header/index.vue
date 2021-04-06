@@ -23,7 +23,7 @@
 
                 <div
                     :class="navbarClass"
-                    class="md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0"
+                    class="md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0 text-center"
                 >
                     <span
                         class="md:hidden border border-main-color dark:border-dark-mode-main-color dark:border-opacity-90"
@@ -44,6 +44,7 @@
                     >
                         Contacts
                     </div>
+                    <theme-switcher></theme-switcher>
                 </div>
             </div>
         </nav>
@@ -53,15 +54,18 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 import ScrollTopBtn from './components/ScrollTopBtn.vue';
 import Contacts from './components/Contacts.vue';
-import { mapActions } from 'vuex';
+import ThemeSwitcher from './components/ThemeSwitcher.vue';
 
 export default {
     name: 'Header',
     components: {
         ScrollTopBtn,
         Contacts,
+        ThemeSwitcher,
     },
     data() {
         return {
@@ -73,7 +77,24 @@ export default {
             this.showContacts();
             // this.$store.dispatch('showContacts');
         },
-        ...mapActions(['showContacts']),
+        ...mapActions(['showContacts', 'initTheme']),
+    },
+    computed: {
+        ...mapGetters({ theme: 'GET_THEME' }),
+    },
+    watch: {
+        theme(newTheme) {
+            if (newTheme === 'light') {
+                document.querySelector('html').classList.remove('dark');
+                document.body.classList.remove('dark');
+            } else {
+                document.querySelector('html').classList.add('dark');
+                document.body.classList.add('dark');
+            }
+        },
+    },
+    beforeMount() {
+        this.initTheme();
     },
 };
 </script>

@@ -4,6 +4,8 @@
     </div>
 </template>
 
+<script></script>
+
 <style>
 html {
     /* scroll-behavior: smooth; */
@@ -22,6 +24,10 @@ html {
 ::-webkit-scrollbar-thumb {
     cursor: pointer;
     background-color: #ff1453;
+}
+.dark::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background-color: #90b8f8;
 }
 @media (prefers-color-scheme: dark) {
     ::-webkit-scrollbar-thumb {

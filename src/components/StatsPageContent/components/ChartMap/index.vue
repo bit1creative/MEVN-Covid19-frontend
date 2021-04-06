@@ -10,7 +10,7 @@
             <div
                 id="chartMap"
                 class="w-full max-w-full bg-pink-50 dark:bg-dark-mode-bg2 py-4 md:pt-16"
-                :key="darkMode"
+                :key="theme"
             >
                 <MapChart
                     :countryData="countryData"
@@ -44,11 +44,12 @@ export default {
         ChartMapLoading,
         ChartMapError,
     },
-    data() {
-        return {
-            darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches,
-        };
-    },
+    // old dark-mode-check method
+    // data() {
+    //     return {
+    //         darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches,
+    //     };
+    // },
     props: {
         chartToShow: {
             type: String,
@@ -74,28 +75,31 @@ export default {
             countryData: 'GET_COUNTRY_DATA',
             error: 'GET_CHART_MAP_ERROR',
             isLoading: 'GET_CHART_DATA_LOADING_STATUS',
+            theme: 'GET_THEME',
         }),
         highColor: function() {
-            return this.darkMode ? '#4f3b78' : '#d83737';
+            return this.theme == 'dark' ? '#4f3b78' : '#d83737';
         },
         lowColor: function() {
-            return this.darkMode ? '#c4bbf0' : '#fde2e2';
+            return this.theme == 'dark' ? '#c4bbf0' : '#fde2e2';
         },
         defaultCountryFillColor: function() {
-            return this.darkMode ? '#b5adc9' : '#dadada';
+            return this.theme == 'dark' ? '#b5adc9' : '#dadada';
         },
     },
     created: function() {
         this.getCountryData(this.chartToShow);
         // this.$store.dispatch('getCountryData', this.chartToShow);
     },
-    mounted: function() {
-        window
-            .matchMedia('(prefers-color-scheme: dark)')
-            .addEventListener('change', e => {
-                this.darkMode = e.matches ? true : false;
-            });
-    },
+
+    // old dark-mode-check method
+    // mounted: function() {
+    //     window
+    //         .matchMedia('(prefers-color-scheme: dark)')
+    //         .addEventListener('change', e => {
+    //             this.darkMode = e.matches ? true : false;
+    //         });
+    // },
 };
 </script>
 
