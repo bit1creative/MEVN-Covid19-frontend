@@ -1,10 +1,8 @@
 const path = require('path');
 
 module.exports = {
-    productionSourceMap: false,
-    publicPath:
-        process.env.NODE_ENV === 'production' ? '../server/public' : '/',
     outputDir: path.resolve(__dirname, '../server/public'),
+    productionSourceMap: false,
     devServer: {
         proxy: {
             '/api': {
