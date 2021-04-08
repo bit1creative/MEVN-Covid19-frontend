@@ -20,24 +20,42 @@
                 ></autocomplete>
             </div>
         </div>
-        <total-info></total-info>
-        <div
-            v-if="data"
-            class="grid grid-cols-1 xl:grid-cols-2 w-full md:w-11/12 mx-auto mb-4"
-        >
-            <Chart class="ml-4" :chart-data="setChartdata('Confirmed')"></Chart>
-            <Chart class="ml-4" :chart-data="setChartdata('Active')"></Chart>
-            <Chart class="ml-4" :chart-data="setChartdata('Recovered')"></Chart>
-            <Chart class="ml-4" :chart-data="setChartdata('Deaths')"></Chart>
+        <Loading v-if="dataIsLoading && !dataError"></Loading>
+        <country-error v-else-if="countryError && !data"></country-error>
+        <data-error
+            v-else-if="dataError && !data"
+            :error="dataError"
+        ></data-error>
+        <div v-else-if="data">
+            <total-info></total-info>
+            <div
+                class="grid grid-cols-1 xl:grid-cols-2 w-full md:w-11/12 mx-auto mb-4"
+            >
+                <Chart
+                    class="ml-4"
+                    :chart-data="setChartdata('Confirmed')"
+                ></Chart>
+                <Chart
+                    class="ml-4"
+                    :chart-data="setChartdata('Active')"
+                ></Chart>
+                <Chart
+                    class="ml-4"
+                    :chart-data="setChartdata('Recovered')"
+                ></Chart>
+                <Chart
+                    class="ml-4"
+                    :chart-data="setChartdata('Deaths')"
+                ></Chart>
+            </div>
         </div>
-        <country-error v-if="countryError && !data"></country-error>
-        <data-error v-if="dataError && !data" :error="dataError"></data-error>
     </div>
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import TotalInfo from './components/TotalInfo';
 import Chart from './components/Chart';
+import Loading from './components/Loading';
 import CountryError from './components/ErrorComponents/CountryError.vue';
 import DataError from './components/ErrorComponents/DataError.vue';
 import Autocomplete from '@trevoreyre/autocomplete-vue';
@@ -52,6 +70,7 @@ export default {
         Autocomplete,
         CountryError,
         DataError,
+        Loading,
     },
     data() {
         return {
@@ -109,6 +128,7 @@ export default {
             });
         },
         handleSubmit(result) {
+            if (result === undefined) return;
             this.userChangedCountry({
                 name: result,
                 code: Object.keys(countries).find(
@@ -125,6 +145,7 @@ export default {
             data: 'GET_USERS_COUNTRY_DATA',
             dataError: 'GET_USERS_COUNTRY_DATA_ERROR',
             countryError: 'GET_USERS_COUNTRY_ERROR',
+            dataIsLoading: 'GET_USERS_COUNTRY_DATA_LOADING_STATUS',
         }),
     },
     watch: {

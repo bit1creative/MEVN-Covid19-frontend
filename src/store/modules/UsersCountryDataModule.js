@@ -8,6 +8,7 @@ const state = () => ({
     usersCountryError: null,
     usersCountryDataError: null,
     usersCountryData: null,
+    usersCountryDataIsLoading: false,
 });
 
 const getters = {
@@ -20,6 +21,8 @@ const getters = {
         state.usersCountryData ? getTotalCases(rootGetters) : null,
     GET_USERS_DATE: (state, rootGetters) =>
         state.usersCountryData ? getDate(rootGetters) : null,
+    GET_USERS_COUNTRY_DATA_LOADING_STATUS: state =>
+        state.usersCountryDataIsLoading,
 };
 
 const actions = {
@@ -38,6 +41,7 @@ const actions = {
     },
 
     getUsersCountryData: async function({ commit, getters }) {
+        commit('SET_USERS_COUNTRY_DATA_LOADING_STATUS', true);
         axios
             .get(
                 `https://api.covid19api.com/country/` +
@@ -61,6 +65,7 @@ const actions = {
                         }, {});
                 });
                 commit('SET_USERS_COUNTRY_DATA', data);
+                commit('SET_USERS_COUNTRY_DATA_LOADING_STATUS', false);
             })
             .catch(error => {
                 commit('SET_USERS_COUNTRY_DATA', null);
@@ -99,6 +104,9 @@ const mutations = {
     USERS_COUNTRY_DATA_ERROR_EVENT: function(state, error) {
         if (error === null) state.countryDataError = error;
         else state.usersCountryDataError = error.name + error.message;
+    },
+    SET_USERS_COUNTRY_DATA_LOADING_STATUS(state, newStatus) {
+        state.usersCountryDataIsLoading = newStatus;
     },
 };
 

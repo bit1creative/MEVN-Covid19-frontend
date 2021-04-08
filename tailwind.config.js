@@ -54,6 +54,45 @@ module.exports = {
                     // '100%': { width: '58.333333%' },
                     '30%': { opacity: '1' },
                 },
+                dotElasticBefore: {
+                    '0%': {
+                        transform: 'scale(1, 1)',
+                    },
+                    '25%': {
+                        transform: 'scale(1, 1.5)',
+                    },
+                    '50%': {
+                        transform: 'scale(1, 0.67)',
+                    },
+                    '75%, 100%': {
+                        transform: 'scale(1, 1)',
+                    },
+                },
+                dotElastic: {
+                    '0%, 25%': {
+                        transform: 'scale(1, 1)',
+                    },
+                    '50%': {
+                        transform: 'scale(1, 1.5)',
+                    },
+                    '75%, 100%': {
+                        transform: 'scale(1, 1)',
+                    },
+                },
+                dotElasticAfter: {
+                    '0%, 25%': {
+                        transform: 'scale(1, 1)',
+                    },
+                    '50%': {
+                        transform: 'scale(1, 0.67)',
+                    },
+                    '75%': {
+                        transform: 'scale(1, 1.5)',
+                    },
+                    '100%': {
+                        transform: 'scale(1, 1)',
+                    },
+                },
             },
             fill: theme => ({
                 'main-color': theme('colors.main-color'),
@@ -72,6 +111,9 @@ module.exports = {
                 slidein: 'slidein 0.7s ease-in-out',
                 appear: 'appear 0.4s forwards',
                 slideout: 'slideout 5s ease-in-out',
+                'dot-elastic-before': 'dotElasticBefore 1s infinite linear',
+                'dot-elastic': 'dotElastic 1s infinite linear',
+                'dot-elastic-after': 'dotElasticAfter 1s infinite linear',
             },
             transitionProperty: {
                 width: 'width',

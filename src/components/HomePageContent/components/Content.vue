@@ -208,11 +208,11 @@
                 </div>
             </div>
             <div
-                class="bg-main-color dark:bg-dark-mode-bg3 text-gray-200 text-center h-18 mx-auto py-4 mb-4 mt-8 text-2xl"
+                class="bg-main-color dark:bg-dark-mode-bg3 text-gray-200 text-center h-18 mx-auto mb-4 mt-8 text-2xl"
             >
                 <router-link
                     to="/stats"
-                    class="flex justify-center mx-auto w-5/12 sm:w-4/12 md:w-3/12 select-none"
+                    class="flex justify-center py-4 mx-auto w-5/12 sm:w-4/12 md:w-3/12 select-none"
                 >
                     <span class="pr-5 dark:text-gray-200">View Stats</span>
                     <div class="pt-1">
