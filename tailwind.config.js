@@ -11,9 +11,9 @@ module.exports = {
             },
             colors: {
                 'main-color': '#ff1453',
+                'dark-mode-bg3': '#4d546e',
                 'dark-mode-bg': '#222831',
                 'dark-mode-bg2': '#363b4e',
-                'dark-mode-bg3': '#4d546e',
                 'dark-mode-main-color': '#90b8f8',
                 'dark-mode-secondary-color': '#c4bbf0',
                 'dark-mode-title': '#639cd9',

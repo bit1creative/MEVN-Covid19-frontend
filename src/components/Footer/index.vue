@@ -50,7 +50,7 @@
                 </a>
             </div>
         </div>
-        <div class="text-center pb-1 select-none">
+        <div class="text-center pb-4 select-none">
             <b class="block font-thin text-xs text-gray-400 dark:text-gray-500">
                 For Non-Commercial usage only. <br /><a
                     href="https://www.who.int/health-topics/coronavirus"
