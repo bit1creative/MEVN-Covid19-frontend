@@ -1,23 +1,21 @@
 <template>
-    <div class="home-page">
-        <Header/>
+    <main-masterpage>
         <home-page-content />
-        <Footer />
-    </div>
+    </main-masterpage>
 </template>
 
 <script>
 // @ is an alias to /src
-import Header from "@/components/Header";
-import Footer from "@/components/Footer"
+import MainMasterpage from '../slots/MainMasterpage';
 import HomePageContent from '@/components/HomePageContent';
 
 export default {
     name: 'Home',
     components: {
         HomePageContent,
-        Footer,
-        Header
+        MainMasterpage,
     },
 };
 </script>
+
+MainMasterpage

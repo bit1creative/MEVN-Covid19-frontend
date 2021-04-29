@@ -1,21 +1,17 @@
 <template>
-    <div class="stats-page">
-        <Header />
+    <main-masterpage>
         <stats-page-content />
-        <Footer />
-    </div>
+    </main-masterpage>
 </template>
 
 <script>
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import MainMasterpage from '../slots/MainMasterpage';
 import StatsPageContent from '@/components/StatsPageContent';
 
 export default {
     name: 'StatsPage',
     components: {
-        Header,
-        Footer,
+        MainMasterpage,
         StatsPageContent,
     },
 };

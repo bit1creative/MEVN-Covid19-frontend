@@ -1,21 +1,17 @@
 <template>
-    <div class="user-country-data">
-        <Header />
-        <UsersCountryContent />
-        <Footer />
-    </div>
+    <main-masterpage>
+        <users-country-content />
+    </main-masterpage>
 </template>
 <script>
 import UsersCountryContent from '@/components/UsersCountryContent';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import MainMasterpage from '../slots/MainMasterpage';
 
 export default {
     name: 'UsersCountryData',
     components: {
         UsersCountryContent,
-        Footer,
-        Header,
+        MainMasterpage,
     },
 };
 </script>

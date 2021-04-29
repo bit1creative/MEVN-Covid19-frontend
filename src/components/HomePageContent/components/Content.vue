@@ -34,7 +34,7 @@
                 </div> -->
             </div>
             <div
-                class="relative flex justify-center overflow-hidden w-full h-44 sm:h-64 lg:h-112"
+                class="relative flex justify-center overflow-hidden w-full h-64 sm:h-64 lg:h-112"
             >
                 <img
                     src="https://www.who.int/images/default-source/health-topics/coronavirus/gettyimages-1203376093.tmb-1366v.png?Culture=en&sfvrsn=6e0c1bc7_6%201366w"
@@ -144,11 +144,11 @@
                     <div class="flex justify-between">
                         <div></div>
                         <ul
-                            class="list-disc list-inside text-left text-gray-600 dark:text-gray-400 dark:border-dark-mode-secondary-color"
+                            class="list-none list-inside text-center text-gray-600 dark:text-gray-400 dark:border-dark-mode-secondary-color"
                         >
-                            <li>fever.</li>
-                            <li>dry cough.</li>
-                            <li>tiredness.</li>
+                            <li>fever</li>
+                            <li>dry cough</li>
+                            <li>tiredness</li>
                         </ul>
                         <div></div>
                     </div>
@@ -166,17 +166,17 @@
                     <div class="flex justify-between">
                         <div></div>
                         <ul
-                            class="list-disc list-inside text-left text-gray-600 dark:text-gray-400"
+                            class="list-none list-inside text-center text-gray-600 dark:text-gray-400"
                         >
-                            <li>aches and pains.</li>
-                            <li>sore throat.</li>
-                            <li>diarrhoea.</li>
-                            <li>conjunctivitis.</li>
-                            <li>headache.</li>
-                            <li>loss of taste or smell.</li>
+                            <li>aches and pains</li>
+                            <li>sore throat</li>
+                            <li>diarrhoea</li>
+                            <li>conjunctivitis</li>
+                            <li>headache</li>
+                            <li>loss of taste or smell</li>
                             <li>
                                 a rash on skin, or discolouration of fingers or
-                                toes.
+                                toes
                             </li>
                         </ul>
                         <div></div>
@@ -195,13 +195,13 @@
                     <div class="flex justify-between">
                         <div></div>
                         <ul
-                            class="list-disc list-inside text-left text-gray-600 dark:text-gray-400"
+                            class="list-none list-inside text-center text-gray-600 dark:text-gray-400"
                         >
                             <li>
-                                difficulty breathing or shortness of breath.
+                                difficulty breathing or shortness of breath
                             </li>
-                            <li>chest pain or pressure.</li>
-                            <li>loss of speech or movement.</li>
+                            <li>chest pain or pressure</li>
+                            <li>loss of speech or movement</li>
                         </ul>
                         <div></div>
                     </div>
